@@ -1,6 +1,13 @@
 TICKET_PRICE = 10
+SERVICE_CHARGE = 2
 
 tickets_remaining = 100
+
+# Create the calculate_price function.  It takes number of tickets and returns quantity * TICKET_PRICE + service fee
+def calculate_price(number_of_tickets):
+	# Create a new constant for the 2 dollar service charge
+	# Add the service charge to the result
+	return (number_of_tickets * TICKET_PRICE) + SERVICE_CHARGE
 
 # Run this code continuously until we run out of tickets.
 while tickets_remaining >= 1:
@@ -26,7 +33,7 @@ while tickets_remaining >= 1:
 		print("Oh no, we ran into an issue. {}. Please try again".format(err))
 	else:
 		# Calculate the price (number of tickets * price) and assign to a variable
-		purchase_total =  TICKET_PRICE * quantity
+		purchase_total =  calculate_price(quantity)
 
 		# Output the price to the screen
 		print("{}, your total for {} tickets will be {}.".format(user_name, quantity, purchase_total))
